@@ -1,14 +1,18 @@
+
 from flask import Flask, jsonify, request
 import json
+import requests
 app = Flask(__name__)
-power = "Online"
+power = ""
 @app.route("/", methods=["POST", "GET"])
-def hello_world():
+def handler():
     global power
     if request.method == "POST":
-        power = json.loads(request.data)["power"]
-        
-        return jsonify("['accepted']")
-    elif request.method == "GET":
+        dataList = list(request.form.keys())[0]
+        print(dataList)
+        parsedDataList = json.loads(dataList)
+        power = parsedDataList["power"]
+        print(parsedDataList)
+        return "test"
+    else:
         return power
-    
