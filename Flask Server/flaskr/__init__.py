@@ -12,6 +12,7 @@ def handler():
         dataList += '"]]}'
         dataList = dataList.replace("'", '"')
         print(dataList)
+        dataList = json.loads(dataList)
         
         return "test"
     else:
