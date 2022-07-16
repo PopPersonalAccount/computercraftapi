@@ -16,7 +16,7 @@ function check()
 end
 function system()
     for o,l in pairs(right.getAvailableItems()) do
-        me = me..'["'..l["name"]..'",'..'"'..l["qty"]..'"'..']'..','
+        me = me..',["'..l["name"]..'",'..'"'..l["qty"]..'"'..']'
     end
 end
 
@@ -31,6 +31,6 @@ if not post then
 end
 system()
 check()
-content = content..'{"info":['..power..','..me
+content = content..'{"info":['..power..me
 
 send(content)
