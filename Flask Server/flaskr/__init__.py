@@ -8,11 +8,11 @@ power = ""
 def handler():
     global power
     if request.method == "POST":
-        dataList = list(request.form.keys())[0]
+        dataList = list(request.form.keys())[0][:-3]
+        dataList += '"]]}'
+        dataList = dataList.replace("'", '"')
         print(dataList)
-        parsedDataList = json.loads(dataList)
-        power = parsedDataList["power"]
-        print(parsedDataList)
+        
         return "test"
     else:
         return power
